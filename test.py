@@ -35,6 +35,7 @@ class Calcular:
      '''
      expression에서 받은 value를 스택에 분류하는 메소드
      연산자 스택과 피연산자 스택 구분
+     숫자는 피연산자 스택에 연산자와 괄호는 연산자 스택에 추가
      '''
         operand_stack = []
         operator_stack = []
@@ -42,16 +43,16 @@ class Calcular:
         # 괄호 스택 (괄호 스택을 만들긴 했는데 괄호를 연산자랑 따로 처리하는 방법을 모르겠습니다ㅠ)
         for char in expression:
             if char.isdigit():
-                operand_stack.append(float(char)) # 숫자일 경우 피연산자 스택에 추가
+                operand_stack.append(float(char))
             elif char in "+-*/":
-                operator_stack.append(char) # 연산자일 경우 연산자 스택에 추가
+                operator_stack.append(char)
             elif char == '(':
-                operator_stack.append(char) # 여는 괄호 연산자 스택에 추가
+                operator_stack.append(char)
             elif char == ')':
                 while operator_stack and operator_stack[-1] != '(':
                     self.perform_operation(operand_stack, operator_stack)
                 operator_stack.pop()
-            # 닫는 괄호일 경우 연산자 스택에서 여는 괄호가 나올 때 까지 연산 수행
+            '''닫는 괄호일 경우 연산자 스택에서 여는 괄호가 나올 때 까지 연산 수행'''
         while operator_stack:
             self.perform_operation(operand_stack, operator_stack) # 남은 연산 수행
 
@@ -88,7 +89,7 @@ class Calcular:
                 raise ValueError("0으로 나눌 수 없습니다.") # 분모가 0인 예외경우 오류
 
      def __del__(self):
-         '''소멸자'''
+     '''소멸자'''
          pass
 
 
