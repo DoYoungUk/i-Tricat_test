@@ -6,8 +6,10 @@ import matplotlib.pyplot as plt
 pi = math.pi
 e = math.e
 
-'''기본 계산기 클래스'''
-class Calculator:
+class Calcular:
+'''
+기본 계산기 클래스
+'''
     def __init__(self): # 생성자
         self.stack = [] # 스택
 
@@ -75,10 +77,15 @@ class Calculator:
             else:
                 raise ValueError("0으로 나눌 수 없습니다.") # 분모가 0인 예외경우 오류
 
-'''     - 공학용 계산기 클래스 -
-Calculator에서 상속받아 기능을 포함하고 생성자 공유
-'''
+     def __del__(self): # 소멸자
+         pass
+
+
 class EngineerCalculator(Calculator): # Calculator 클래스 상속받음
+'''     
+공학용 계산기 클래스
+Calculator에서 상속받아 Calculator기능을 포함
+'''
     def __init__(self):
         super().__init__() # 부모클래스인 Calculator 생성자 호출하여 초기화
 
