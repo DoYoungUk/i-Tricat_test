@@ -9,6 +9,7 @@ e = math.e
 class Calcular:
 '''
 기본 계산기 클래스
+사칙연산이 가능하다
 '''
     def __init__(self): # 생성자
         self.stack = [] # 스택
