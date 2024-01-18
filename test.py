@@ -97,6 +97,8 @@ class EngineerCalculator(Calculator): # Calculator 클래스 상속받음
 
     def calculate_factorial(self, n):
         # 팩토리얼 구하는 메소드
+        if not isinstance(n,int) or n < 0:
+            return "값을 구할 수 없습니다."
         if n == 0 or n == 1:
             return 1
         else:
