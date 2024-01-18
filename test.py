@@ -2,7 +2,7 @@ import math
 import numpy as np
 import matplotlib.pyplot as plt
 
-# 기본 상수
+''' 기본 상수 '''
 pi = math.pi
 e = math.e
 
